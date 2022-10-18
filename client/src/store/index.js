@@ -191,11 +191,22 @@ export const useGlobalStore = () => {
     }
 
     store.createNewList = function () {
-        store.currentList = null;
-        store.idNamePairs = [];
-        store.newListCounter++;
-        store.listNameActive = true;
+        async function asyncLoadIdNamePairs() {
+            const response = await api.getAllPlaylists();
+            if (response.data.success) {
+                let data = response.data;
+                storeReducer({
+                    type: GlobalStoreActionType.CREATE_NEW_LIST,
+                    payload: data
+                });
+            }
+            else {
+                console.log("API FAILED TO GET THE LIST PAIRS");
+            }
+        }
+        asyncLoadIdNamePairs();
     }
+    
 
     store.getPlaylistSize = function() {
         return store.currentList.songs.length;
