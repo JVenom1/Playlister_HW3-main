@@ -193,7 +193,7 @@ export const useGlobalStore = () => {
     store.createNewList = function () {
         store.currentList = null;
         store.idNamePairs = [];
-        store.newListCounter = 0;
+        store.newListCounter++;
         store.listNameActive = true;
     }
 
