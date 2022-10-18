@@ -110,6 +110,8 @@ export const useGlobalStore = () => {
     // DRIVE THE STATE OF THE APPLICATION. WE'LL CALL THESE IN 
     // RESPONSE TO EVENTS INSIDE OUR COMPONENTS.
 
+
+
     // THIS FUNCTION PROCESSES CHANGING A LIST NAME
     store.changeListName = function (id, newName) {
         // GET THE LIST
@@ -151,6 +153,7 @@ export const useGlobalStore = () => {
         });
     }
 
+
     // THIS FUNCTION LOADS ALL THE ID, NAME PAIRS SO WE CAN LIST ALL THE LISTS
     store.loadIdNamePairs = function () {
         async function asyncLoadIdNamePairs() {
@@ -185,6 +188,11 @@ export const useGlobalStore = () => {
             }
         }
         asyncSetCurrentList(id);
+    }
+
+    
+    store.createNewList = function () {
+        
     }
     store.getPlaylistSize = function() {
         return store.currentList.songs.length;
