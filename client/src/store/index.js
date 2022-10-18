@@ -190,10 +190,14 @@ export const useGlobalStore = () => {
         asyncSetCurrentList(id);
     }
 
-    
     store.createNewList = function () {
-        
+        store.currentList = null;
+        store.idNamePairs = [];
+        store.newListCounter = 0;
+        store.listNameActive = true;
+        return store;
     }
+
     store.getPlaylistSize = function() {
         return store.currentList.songs.length;
     }
