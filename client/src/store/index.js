@@ -195,7 +195,6 @@ export const useGlobalStore = () => {
         store.idNamePairs = [];
         store.newListCounter = 0;
         store.listNameActive = true;
-        return store;
     }
 
     store.getPlaylistSize = function() {
